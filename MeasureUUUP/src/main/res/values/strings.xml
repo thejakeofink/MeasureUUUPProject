@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Measure UUUP</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello World</string>
+    <string name="length_but">Length Conversion</string>
+    <string name="volume_but">Volume Conversion</string>
+    <string name="temp_but">Temp Conversion</string>
+    <string name="mass_but">Mass Conversion</string>
+    <string name="currency_but">Currency Conversion</string>
+    <string name="data_but">Data Conversion</string>
+    <string name="tip_but">Tip Calculator</string>
+    <string name="title_activity_length">LengthActivity</string>
+    <string name="title_activity_volume">Volume Conversion</string>
+    <string name="title_activity_temp">Temp Conversion</string>
+    <string name="title_activity_mass">Mass Conversion</string>
+    <string name="title_activity_currency">Currency Conversion</string>
+    <string name="title_activity_data">Data Conversion</string>
+    <string name="title_activity_tip">Tip Calculator</string>
+    <string name="input_num">Input a Number</string>
+    <string name="inches_rad">Inches</string>
+    <string name="feet_rad">Feet</string>
+    <string name="yards_rad">Yards</string>
+    <string name="miles_rad">Miles</string>
+    <string name="millimeters_rad">Millimeters</string>
+    <string name="centimeters_rad">Centimeters</string>
+    <string name="meters_rad">Meters</string>
+    <string name="kilometers_rad">Kilometers</string>
+    <string name="fl_ounces_rad">Fluid Ounces</string>
+    <string name="cups_rad">Cups</string>
+    <string name="pints_rad">Pints</string>
+    <string name="quarts_rad">Quarts</string>
+    <string name="gallons_rad">Gallons</string>
+    <string name="milliliters_rad">Milliliters</string>
+    <string name="liters_rad">Liters</string>
+    <string name="fahr_rad">Fahrenheit</string>
+    <string name="celsius_rad">Celsius</string>
+    <string name="kelvin_rad">Kelvin</string>
+    <string name="ounces_rad">Ounces</string>
+    <string name="pounds_rad">Pounds</string>
+    <string name="tons_rad">Tons</string>
+    <string name="grams_rad">Grams</string>
+    <string name="kilograms_rad">Kilograms</string>
+    <string name="tonnes_rad">Tonnes</string>
+
+
+
+</resources>
