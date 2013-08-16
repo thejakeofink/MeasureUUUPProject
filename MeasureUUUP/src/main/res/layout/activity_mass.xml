@@ -26,7 +26,8 @@
         <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/volume_radio_group">
+                android:id="@+id/volume_radio_group"
+                android:layout_column="0">
             <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -58,6 +59,16 @@
                     android:text="@string/tonnes_rad"
                     android:id="@+id/tonnes_radio"/>
         </RadioGroup>
+    </TableRow>
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compute_conv"
+                android:id="@+id/compute_button"
+                android:layout_column="0"/>
     </TableRow>
 
 </TableLayout>

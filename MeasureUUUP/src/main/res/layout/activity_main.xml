@@ -9,56 +9,80 @@
     tools:context=".MainActivity"
     android:gravity="center_horizontal">
 
-    <Button
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/length_but"
-            android:id="@+id/length_button"
-            android:onClick="runLength"/>
-
-    <Button
+            android:gravity="center_horizontal">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/length_but"
+                android:id="@+id/length_button"
+                android:onClick="runLength"/>
+    </TableRow>
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/volume_but"
-            android:id="@+id/volume_button"
-            android:onClick="runVolume"/>
-
-    <Button
+            android:gravity="center_horizontal">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volume_but"
+                android:id="@+id/volume_button"
+                android:onClick="runVolume"/>
+    </TableRow>
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/temp_but"
-            android:id="@+id/temp_button"
-            android:onClick="runTemp"/>
-
-    <Button
+            android:gravity="center_horizontal">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temp_but"
+                android:id="@+id/temp_button"
+                android:onClick="runTemp"/>
+    </TableRow>
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mass_but"
-            android:id="@+id/mass_button"
-            android:onClick="runMass"/>
-
-    <Button
+            android:gravity="center_horizontal">
+       <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mass_but"
+                android:id="@+id/mass_button"
+                android:onClick="runMass"/>
+    </TableRow>
+       <!-- <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/currency_but"
+                android:id="@+id/currency_button"
+                android:onClick="runCurrency"/>-->
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/currency_but"
-            android:id="@+id/currency_button"
-            android:onClick="runCurrency"/>
-
-    <Button
+            android:gravity="center_horizontal">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data_but"
+                android:id="@+id/data_button"
+                android:onClick="runData"/>
+    </TableRow>
+    <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/data_but"
-            android:id="@+id/data_button"
-            android:onClick="runData"/>
+            android:gravity="center_horizontal">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_but"
+                android:id="@+id/tip_button"
+                android:onClick="runTip"/>
+    </TableRow>
 
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_but"
-            android:id="@+id/tip_button"
-            android:onClick="runTip"/>
-
-    <!--<TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hello_world"

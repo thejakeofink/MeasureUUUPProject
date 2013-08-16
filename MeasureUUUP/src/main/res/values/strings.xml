@@ -43,7 +43,17 @@
     <string name="grams_rad">Grams</string>
     <string name="kilograms_rad">Kilograms</string>
     <string name="tonnes_rad">Tonnes</string>
-
+    <string name="compute_conv">Compute</string>
+    <string name="bits_rad">Bits</string>
+    <string name="kilobits_rad">Kilobits</string>
+    <string name="megabits_rad">Megabits</string>
+    <string name="gigabits_rad">Gigabits</string>
+    <string name="terabits_rad">Terabits</string>
+    <string name="bytes_rad">Bytes</string>
+    <string name="kilobytes_rad">Kilobytes</string>
+    <string name="megabytes_rad">Megabytes</string>
+    <string name="gigabytes_rad">Gigabytes</string>
+    <string name="terabytes_rad">Terabytes</string>
 
 
 </resources>

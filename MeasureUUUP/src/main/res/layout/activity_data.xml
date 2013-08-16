@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +8,88 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".DataActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/data_but" />
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/input_num"
+                android:layout_column="0"
+                android:hint="@string/input_num"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/data_radio_group"
+                android:layout_column="0">
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bits_rad"
+                    android:id="@+id/bits_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kilobits_rad"
+                    android:id="@+id/kilobits_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/megabits_rad"
+                    android:id="@+id/megabits_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gigabits_rad"
+                    android:id="@+id/gigabits_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terabits_rad"
+                    android:id="@+id/terabits_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bytes_rad"
+                    android:id="@+id/bytes_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kilobytes_rad"
+                    android:id="@+id/kilobytes_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/megabytes_rad"
+                    android:id="@+id/megabytes_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gigabytes_rad"
+                    android:id="@+id/gigabytes_radio"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terabytes_rad"
+                    android:id="@+id/terabytes_radio"/>
+        </RadioGroup>
+    </TableRow>
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compute_conv"
+                android:id="@+id/compute_button"
+                android:layout_column="0"
+                android:onClick="computeClicked"/>
+    </TableRow>
 
-</RelativeLayout>
+</TableLayout>
