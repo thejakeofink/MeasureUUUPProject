@@ -1,13 +1,10 @@
 package com.thejakeofink.measureup;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private final String TAG = "MainActivity";

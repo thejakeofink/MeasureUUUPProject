@@ -1,12 +1,15 @@
 package com.thejakeofink.measureup;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 
@@ -20,7 +23,12 @@ public class LengthActivity extends Activity {
     private final int CENTIMETERS = R.id.centimeters_radio;
     private final int METERS = R.id.meters_radio;
     private final int KILOMETERS = R.id.kilometers_radio;
-
+    private final BigDecimal IN_TO_FEET = new BigDecimal(12);
+    private final BigDecimal FEET_TO_YARD = new BigDecimal(3);
+    private final BigDecimal FEET_TO_MILE = new BigDecimal(5280);
+    private final BigDecimal IN_TO_MILLI = new BigDecimal(25.4);
+    private final BigDecimal METRIC = new BigDecimal(10);
+    private final int roundAmount = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +47,19 @@ public class LengthActivity extends Activity {
     public void computeClicked(View view)
     {
 
-        EditText editText = (EditText)findViewById(R.id.input_num);
+        EditText editText = (EditText)findViewById(R.id.length_num);
         String textInput = editText.getText().toString();
 
         //Log.i(TAG, textInput);
-        RadioGroup dataGroup = (RadioGroup)findViewById(R.id.data_radio_group);
-        TextView displayText = (TextView)findViewById(R.id.data_display);
+        RadioGroup lengthGroup = (RadioGroup)findViewById(R.id.length_radio_group);
+        TextView displayText = (TextView)findViewById(R.id.length_display);
 
         //Log.i(TAG, "This radio buttons id is: " + Integer.toString(dataGroup.getCheckedRadioButtonId()));
         if (validateInput(textInput))
         {
             BigDecimal userInput = new BigDecimal(textInput);
-            LengthConverter userData = new LengthConverter(dataGroup.getCheckedRadioButtonId(), userInput);
-            userData.computeData();
+            LengthConverter userData = new LengthConverter(lengthGroup.getCheckedRadioButtonId(), userInput);
+            userData.computeLength(this);
             userData.display(displayText);
         }
         else
@@ -62,8 +70,10 @@ public class LengthActivity extends Activity {
 
     private void displayPrompt(TextView textDisplay)
     {
-        String prompt = new String("Please input a number.");
-        textDisplay.setText(prompt);
+        Log.i(TAG,"toast after this");
+        Toast.makeText(this, "Please input a number.", Toast.LENGTH_SHORT).show();
+        //String prompt = new String("Please input a number.");
+        //textDisplay.setText(prompt);
     }
 
 
@@ -105,7 +115,7 @@ public class LengthActivity extends Activity {
             myDisplay = "";
         }
 
-        public void computeData()
+        public void computeLength(Context context)
         {
             switch (this.getType())
             {
@@ -114,35 +124,36 @@ public class LengthActivity extends Activity {
                     computeAll();
                     break;
                 case FEET:
-                    //inches = this.getInputValue().multiply(BITDIVIDER);
+                    inches = this.getInputValue().multiply(IN_TO_FEET);
                     computeAll();
                     break;
                 case YARDS:
-                    //inches = (this.getInputValue().multiply(BITDIVIDER)).multiply(BITDIVIDER);
+                    inches = (this.getInputValue().multiply(IN_TO_FEET)).multiply(FEET_TO_YARD);
                     computeAll();
                     break;
                 case MILES:
-                    //inches = ((this.getInputValue().multiply(BITDIVIDER)).multiply(BITDIVIDER)).multiply(BITDIVIDER);
+                    inches = ((this.getInputValue().multiply(IN_TO_FEET)).multiply(FEET_TO_MILE));
                     computeAll();
                     break;
                 case MILLIMETERS:
-                    //inches = (((this.getInputValue().multiply(BITDIVIDER)).multiply(BITDIVIDER)).multiply(BITDIVIDER)).multiply(BITDIVIDER);
+                    inches = this.getInputValue().divide(IN_TO_MILLI,roundAmount, BigDecimal.ROUND_FLOOR);
                     computeAll();
                     break;
                 case CENTIMETERS:
-                    //inches = this.getInputValue().multiply(BYTED);
+                    inches = this.getInputValue().divide(IN_TO_MILLI,roundAmount, BigDecimal.ROUND_FLOOR).multiply(METRIC);
                     computeAll();
                     break;
                 case METERS:
-                    //inches = (this.getInputValue().multiply(BYTED)).multiply(BYTEDIVIDER);
+                    inches = (this.getInputValue().divide(IN_TO_MILLI,roundAmount, BigDecimal.ROUND_FLOOR).multiply(METRIC)).multiply(METRIC).multiply(METRIC);
                     computeAll();
                     break;
                 case KILOMETERS:
-                    //inches = ((this.getInputValue().multiply(BYTED)).multiply(BYTEDIVIDER)).multiply(BYTEDIVIDER);
+                    inches = ((this.getInputValue().divide(IN_TO_MILLI,roundAmount, BigDecimal.ROUND_FLOOR).multiply(METRIC)).multiply(METRIC)).multiply(METRIC).multiply(METRIC).multiply(METRIC);
                     computeAll();
                     break;
                 case -1:
-                    myDisplay = "Please select a unit.";
+                    Toast.makeText(context,"Please select a unit.", Toast.LENGTH_SHORT).show();
+                    //myDisplay = "Please select a unit.";
                     break;
             }
         }
@@ -157,19 +168,20 @@ public class LengthActivity extends Activity {
         private void computeAll()
         {
             myDisplay += inches + " Inches\n";
-            //feet = inches.divide(BITDIVIDER);
+            feet = inches.divide(IN_TO_FEET,roundAmount, BigDecimal.ROUND_FLOOR);
             myDisplay += feet + " Feet\n";
-            //yards = feet.divide(BITDIVIDER);
+            //Log.i(TAG, "Feet " + feet);
+            yards = feet.divide(FEET_TO_YARD,roundAmount, BigDecimal.ROUND_FLOOR);
             myDisplay += yards + " Yards\n";
-            //miles = yards.divide(BITDIVIDER);
+            miles = feet.divide(FEET_TO_MILE,roundAmount, BigDecimal.ROUND_FLOOR);
             myDisplay += miles + " Miles\n";
-            //millimeters = inches.divide(BITDIVIDER);
+            millimeters = inches.multiply(IN_TO_MILLI);
             myDisplay += millimeters + " Millimeters\n";
-            //centimeters = millimeters.divide(BYTED);
+            centimeters = millimeters.divide(METRIC,roundAmount, BigDecimal.ROUND_FLOOR);
             myDisplay += centimeters + " Centimeters\n";
-            //meters = centimeters.divide(BYTEDIVIDER);
+            meters = centimeters.divide(METRIC,roundAmount, BigDecimal.ROUND_FLOOR).divide(METRIC,roundAmount,BigDecimal.ROUND_FLOOR);
             myDisplay += meters + " Meters\n";
-            //kilometers = meters.divide(BYTEDIVIDER);
+            kilometers = meters.divide(METRIC,roundAmount, BigDecimal.ROUND_FLOOR).divide(METRIC,roundAmount, BigDecimal.ROUND_FLOOR);
             myDisplay += kilometers + " Kilometers\n";
         }
     }

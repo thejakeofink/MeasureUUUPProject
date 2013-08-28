@@ -1,4 +1,4 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,77 +7,82 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".LengthActivity"
-    android:gravity="center_horizontal">
-    <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    android:orientation="vertical"
+        >
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/length_num"
-                android:layout_column="0"
                 android:hint="@string/input_num"/>
-    </TableRow>
-    <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://scemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/length_radio_group"
-                android:layout_column="0">
-            <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/inches_rad"
-                    android:id="@+id/inches_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/feet_rad"
-                    android:id="@+id/feet_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yards_rad"
-                    android:id="@+id/yards_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/miles_rad"
-                    android:id="@+id/miles_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/millimeters_rad"
-                    android:id="@+id/millimeters_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/centimeters_rad"
-                    android:id="@+id/centimeters_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/meters_rad"
-                    android:id="@+id/meters_radio"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/kilometers_rad"
-                    android:id="@+id/kilometers_radio"/>
+                    android:id="@+id/length_radio_group">
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inches_rad"
+                        android:id="@+id/inches_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feet_rad"
+                        android:id="@+id/feet_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yards_rad"
+                        android:id="@+id/yards_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/miles_rad"
+                        android:id="@+id/miles_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/millimeters_rad"
+                        android:id="@+id/millimeters_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/centimeters_rad"
+                        android:id="@+id/centimeters_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meters_rad"
+                        android:id="@+id/meters_radio"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kilometers_rad"
+                        android:id="@+id/kilometers_radio"/>
         </RadioGroup>
-    </TableRow>
-    <TableRow
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/length_display"/>
+
+    </LinearLayout>
+
         <Button
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="@string/compute_conv"
                 android:id="@+id/compute_button"
-                android:layout_column="0"/>
-    </TableRow>
-</TableLayout>
+                android:onClick="computeClicked"/>
+
+
+</LinearLayout>

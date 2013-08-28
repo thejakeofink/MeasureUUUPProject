@@ -1,16 +1,19 @@
 package com.thejakeofink.measureup;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.math.BigDecimal;
 
 public class DataActivity extends Activity {
-    //private final String TAG = "DataActivity";
+    private final String TAG = "DataActivity";
     private final int BIT = R.id.bits_radio;
     private final int KBIT = R.id.kilobits_radio;
     private final int MBIT = R.id.megabits_radio;
@@ -54,7 +57,7 @@ public class DataActivity extends Activity {
         {
             BigDecimal userInput = new BigDecimal(textInput);
             DataConverter userData = new DataConverter(dataGroup.getCheckedRadioButtonId(), userInput);
-            userData.computeData();
+            userData.computeData(this);
             userData.display(displayText);
         }
         else
@@ -65,8 +68,10 @@ public class DataActivity extends Activity {
 
     private void displayPrompt(TextView textDisplay)
     {
-        String prompt = new String("Please input a number.");
-        textDisplay.setText(prompt);
+        //Log.i(TAG, "toast after this");
+        Toast.makeText(this,"Please input a number.",Toast.LENGTH_SHORT).show();
+        //String prompt = new String("Please input a number.");
+        //textDisplay.setText(prompt);
     }
 
     private boolean validateInput(String userIn)
@@ -111,7 +116,7 @@ public class DataActivity extends Activity {
             myDisplay = "";
         }
 
-        public void computeData()
+        public void computeData(Context context)
         {
             switch (this.getType())
             {
@@ -156,7 +161,8 @@ public class DataActivity extends Activity {
                     computeAll();
                     break;
                 case -1:
-                    myDisplay = "Please select a unit.";
+                    Toast.makeText(context, "Please select a unit.", Toast.LENGTH_SHORT).show();
+                    //myDisplay = "Please select a unit.";
                     break;
             }
         }
