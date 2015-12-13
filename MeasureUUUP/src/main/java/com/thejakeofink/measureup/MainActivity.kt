@@ -2,6 +2,7 @@ package com.thejakeofink.measureup
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -14,11 +15,14 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
+    private var drawer: DrawerLayout? = null
+    private var toolbar: Toolbar? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar = findViewById(R.id.main_toolbar) as Toolbar
+        toolbar = findViewById(R.id.main_toolbar) as Toolbar?
 
         setSupportActionBar(toolbar)
 
@@ -26,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         actionBar.title = "We did it!"
 
-        val drawer = findViewById(R.id.drawer_view) as DrawerLayout
+        drawer = findViewById(R.id.drawer_view) as DrawerLayout?
 
         var drawerToggle = object : ActionBarDrawerToggle(this, drawer, toolbar, R.string.empty, R.string.empty) {
 
@@ -39,14 +43,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        drawer.setDrawerListener(drawerToggle);
+        drawer?.setDrawerListener(drawerToggle);
         drawerToggle.syncState()
 
         val navView = findViewById(R.id.nav_view) as NavigationView
 
         navView.setNavigationItemSelectedListener {
             var toastText = getStringData(it.itemId)
-            Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
+            Snackbar.make(drawer, toastText, Snackbar.LENGTH_INDEFINITE).show()
             return@setNavigationItemSelectedListener true
         }
     }
@@ -69,4 +73,14 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when (item?.itemId) {
+            R.id.action_settings -> {
+                Snackbar.make(drawer, "Some Snacky Snack", Snackbar.LENGTH_INDEFINITE).show()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 }
