@@ -54,6 +54,7 @@
     <string name="megabytes_rad">Megabytes</string>
     <string name="gigabytes_rad">Gigabytes</string>
     <string name="terabytes_rad">Terabytes</string>
+    <string name="empty"></string>
 
 
 </resources>
